@@ -3,16 +3,16 @@
 import {useState} from 'react';
 
 export const useLocalStorage = key => {
-    const [username, setUsername] = useState(
+    const [value, setValue] = useState(
         window.localStorage.getItem(key)
         );
-    const handleUsernameChanges = e => {
+    const handleValueChanges = e => {
     window.localStorage.setItem(key, e.target.value);  
-    setUsername(e.target.value);
+    setValue(e.target.value);
 
   }
 
-    return [username, setUsername, handleUsernameChanges];
+    return [value, setValue, handleValueChanges];
 }
 
 
