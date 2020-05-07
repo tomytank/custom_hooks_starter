@@ -1,5 +1,3 @@
-
-
 import {useState} from 'react';
 
 export const useLocalStorage = key => {
@@ -7,13 +5,28 @@ export const useLocalStorage = key => {
         window.localStorage.getItem(key)
         );
     const handleValueChanges = e => {
+        // console.log("I'm handlveValueChanges function in useLocalStorage")
     window.localStorage.setItem(key, e.target.value);  
     setValue(e.target.value);
+    };
 
-  }
+    const setStateAndLocalStorage = newValue => {
+        setValue(newValue);
+        window.localStorage.setItem(key, newValue)
 
-    return [value, setValue, handleValueChanges];
-}
+    };
+//         if(key === "") {
+//             window.localStorage.clear();
+//         };
+
+//     const clear = () => {
+//         window.localStorage.clear();
+//     }
+
+//   }
+
+    return [value, setStateAndLocalStorage, handleValueChanges];
+};
 
 
 // import { useState } from "react";

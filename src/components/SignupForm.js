@@ -24,22 +24,31 @@ const useStyles = makeStyles(theme => ({
 
 export default function SignupForm() {
   const classes = useStyles(); // Make MaterialUI Work!
-  const [username, setUsername, handleUsernameChanges] = useLocalStorage(
-    "username"  //this is the 'key' for useLocalStorage
-  );
+  const [username, setUsername, handleUsernameChanges] = useLocalStorage("username" );
   const [email, setEmail, handleEmailChanges] = useLocalStorage(
       "email"  //this is the 'key' for useLocalStorage
       );
 
   const handleSubmit = e => {
     e.preventDefault();
-    alert(username+" "+email);
+    alert("Hello "+username+", your given email is:"+email);
   };
 
   const clearForm = e => {
     e.preventDefault();
+    // useLocalStorage("username") = "";
+    // handleValueChanges("username") = "";
+    // setUsername
+    // useItem
     setUsername("");
     setEmail("");
+    // useLocalStorage("");
+    // useLocalStorage("clear");
+    // window.localStorage.clear();
+    // useLocalStorage("username").clear;
+    // useLocalStorage("username").clear();
+    // setUsername;
+
   };
 
   return (
