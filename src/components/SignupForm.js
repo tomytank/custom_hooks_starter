@@ -36,19 +36,8 @@ export default function SignupForm() {
 
   const clearForm = e => {
     e.preventDefault();
-    // useLocalStorage("username") = "";
-    // handleValueChanges("username") = "";
-    // setUsername
-    // useItem
     setUsername("");
     setEmail("");
-    // useLocalStorage("");
-    // useLocalStorage("clear");
-    // window.localStorage.clear();
-    // useLocalStorage("username").clear;
-    // useLocalStorage("username").clear();
-    // setUsername;
-
   };
 
   return (
