@@ -1,8 +1,9 @@
 import {useState} from 'react';
 
 export const useLocalStorage = key => {
-    const [value, setValue] = useState(window.localStorage.getItem(key));
-
+    const storedValue = window.localStorage.getItem(key);
+    const [value, setValue] = useState(storedValue ? JSON.parse(storedValue): "");
+    // const [value, setValue] = useState(parseValue = (JSON.parse(window.localStorage.getItem(key)));
     // resets values on local storage and state to zero
     const setStateAndLocalStorage = newValue => { // combining localstorage and state setting together
         setValue(newValue); //setting state value
@@ -28,9 +29,9 @@ export const useLocalStorage = key => {
     //     }
 
     // }
-    console.log("value is ",value);
-    const parseValue = (value ? JSON.parse(value) : null)
+    // console.log("value is ",value);
+    // const parseValue = (value ? JSON.parse(value) : null)
 
-    return [ parseValue , setStateAndLocalStorage, handleValueChanges];
+    return [ value , setStateAndLocalStorage, handleValueChanges];
 };
 
