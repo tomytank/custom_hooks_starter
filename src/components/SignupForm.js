@@ -23,15 +23,16 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function SignupForm() {
-  const classes = useStyles(); // Make MaterialUI Work!
+  const classes = useStyles(); // Makes MaterialUI Work!
   const [username, setUsername, handleUsernameChanges] = useLocalStorage("username" );
   const [email, setEmail, handleEmailChanges] = useLocalStorage(
       "email"  //this is the 'key' for useLocalStorage
       );
 
   const handleSubmit = e => {
+      //do something further with the submitted input, eg login, newsletter signup, etc
     e.preventDefault();
-    if(username === ""){
+        if(username === ""){
         alert("No valid inputs!")
     }else {
     alert("Hello "+username+", your given email is: "+email);
