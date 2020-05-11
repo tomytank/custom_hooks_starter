@@ -31,7 +31,11 @@ export default function SignupForm() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    alert("Hello "+username+", your given email is:"+email);
+    if(username === ""){
+        alert("No valid inputs!")
+    }else {
+    alert("Hello "+username+", your given email is: "+email);
+    }
   };
 
   const clearForm = e => {
@@ -49,6 +53,7 @@ export default function SignupForm() {
             id="outlined-name"
             label="Username"
             className={classes.textField}
+            // value={JSON.parse(username)}
             value={username}
             // onChange={handleUsernameChanges}
             onChange={handleUsernameChanges}
@@ -59,6 +64,7 @@ export default function SignupForm() {
             id="outlined-name"
             label="Email"
             className={classes.textField}
+            // value={(email ? JSON.parse(email) : "")}
             value={email}
             onChange={handleEmailChanges}
             margin="normal"
